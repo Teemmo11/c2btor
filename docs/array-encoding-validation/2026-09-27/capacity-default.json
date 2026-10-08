@@ -1,0 +1,198 @@
+{
+  "capacity": {
+    "cbmc_sha256": "b26a401f147393ff83ead28fc450d1eff3bf039a004541ea5937594a4a7ed86e",
+    "results": [
+      {
+        "name": "32-0-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "32-0-explicit-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "32-0-default-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "32-0-override",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "32-0-override-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "32-0-actual-bounds",
+        "expected": "memory_validity",
+        "actual": "memory_validity",
+        "passed": true
+      },
+      {
+        "name": "32-0-fixed-exact",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "32-1-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "32-1-explicit-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "32-1-default-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "32-1-override",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "32-1-override-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "32-1-actual-bounds",
+        "expected": "memory_validity",
+        "actual": "memory_validity",
+        "passed": true
+      },
+      {
+        "name": "64-0-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "64-0-explicit-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "64-0-default-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "64-0-override",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "64-0-override-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "64-0-actual-bounds",
+        "expected": "memory_validity",
+        "actual": "memory_validity",
+        "passed": true
+      },
+      {
+        "name": "64-0-fixed-exact",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "64-1-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "64-1-explicit-default",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "64-1-default-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "64-1-override",
+        "expected": "source",
+        "actual": "source",
+        "passed": true
+      },
+      {
+        "name": "64-1-override-excess",
+        "expected": "model_limit",
+        "actual": "model_limit",
+        "passed": true
+      },
+      {
+        "name": "64-1-actual-bounds",
+        "expected": "memory_validity",
+        "actual": "memory_validity",
+        "passed": true
+      }
+    ]
+  },
+  "cli": [
+    {
+      "name": "default",
+      "passed": true
+    },
+    {
+      "name": "array",
+      "passed": true
+    },
+    {
+      "name": "zero",
+      "passed": true
+    },
+    {
+      "name": "negative",
+      "passed": true
+    },
+    {
+      "name": "malformed",
+      "passed": true
+    },
+    {
+      "name": "wrong-mode",
+      "passed": true
+    },
+    {
+      "name": "default-remains-array",
+      "passed": true
+    },
+    {
+      "name": "default-heap-budget-32",
+      "passed": true,
+      "packed_bytes": 32768
+    }
+  ]
+}

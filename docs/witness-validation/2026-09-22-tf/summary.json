@@ -1,0 +1,28 @@
+{
+  "RQ1": {
+    "tasks": 20,
+    "backend_sat": 18,
+    "yaml": 17,
+    "confirmed": 0,
+    "outcomes": {
+      "validation_rejected": 13,
+      "validation_unknown": 3,
+      "validation_error": 1,
+      "simulation_rejected": 1,
+      "model_unsat": 1,
+      "no_counterexample": 1
+    }
+  },
+  "RQ2": {
+    "tasks": 37,
+    "backend_sat": 6,
+    "yaml": 6,
+    "confirmed": 0,
+    "outcomes": {
+      "no_counterexample": 26,
+      "validation_unknown": 5,
+      "validation_error": 1,
+      "conversion_error": 5
+    }
+  }
+}

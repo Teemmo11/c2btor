@@ -1,0 +1,16 @@
+| array-examples | 5 | 0 |
+| array-fpi | 15 | 11 |
+| array-industry-pattern | 6 | 0 |
+| array-programs | 2 | 0 |
+| bitvector | 5 | 0 |
+| bitvector-regression | 6 | 4 |
+| floats-cdfpl | 5 | 0 |
+| ldv-regression | 17 | 16 |
+| list-properties | 3 | 3 |
+| loop-acceleration | 15 | 6 |
+| loop-crafted | 1 | 1 |
+| loop-invariants | 1 | 1 |
+| loop-invgen | 1 | 1 |
+| loops | 17 | 12 |
+| loops-crafted-1 | 5 | 0 |
+| recursive-simple | 5 | 0 |

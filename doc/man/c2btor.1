@@ -1,0 +1,50 @@
+.TH C2BTOR 1 "October 2026" "C2BTOR 2.0" "User Commands"
+.SH NAME
+c2btor \- translate C programs to BTOR2 transition systems
+.SH SYNOPSIS
+.B c2btor
+.I program.c
+.B --goto-btor2 --inline
+.RI [ options ]
+.SH DESCRIPTION
+C2BTOR uses the CBMC frontend and GotoIR to produce bit-precise BTOR2 models,
+with object memory, IEEE-754 circuits and source translation maps.
+The default representation is object memory with bit-vector storage.
+Runtime object capacities are inferred during model generation.
+.SH OPTIONS
+.TP
+.B --goto-btor2-out FILE
+Write the BTOR2 model to FILE instead of standard output.
+.TP
+.B --goto-btor2-map-out FILE
+Write PC, GotoIR and source mappings and model metadata.
+.TP
+.B --memory object|global
+Select memory organization; the default is object.
+.TP
+.B --array bv|array
+Select storage encoding; the default is bv.
+.TP
+.B --memory-object-max-bytes N
+Set an explicit runtime object capacity. Exceeding it is a model limit.
+.TP
+.B --goto-btor2-heap-objects K
+Bound total successful allocations; the default is 32. Free does not reclaim identities.
+.TP
+.B --32, --64
+Select the target data model.
+.TP
+.B --help, --version
+Show product help or version.
+.SH RESULTS AND WITNESSES
+A source SAT result is a counterexample candidate. Use c2btor_witness.py
+export, translate and validate for hash binding, BtorSim replay and CPAchecker confirmation.
+An UNSAT claim must cover all selected properties and model obligations.
+Bounded absence, timeout and unknown are not C SAFE results.
+.SH ACKNOWLEDGEMENTS
+Based on CBMC: https://github.com/diffblue/cbmc .
+Documentation: https://diffblue.github.io/cbmc/ .
+This product includes software developed by Daniel Kroening, Edmund Clarke,
+Computer Science Department, University of Oxford,
+Computer Science Department, Carnegie Mellon University.
+See LICENSE for the 4-clause BSD terms.

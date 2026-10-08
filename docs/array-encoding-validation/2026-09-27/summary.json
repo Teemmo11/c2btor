@@ -1,0 +1,78 @@
+{
+  "rules-64": {
+    "passed": 56,
+    "total": 56,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/rules-64"
+  },
+  "rules-32": {
+    "passed": 29,
+    "total": 29,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/rules-32"
+  },
+  "rules-big-endian": {
+    "passed": 4,
+    "total": 4,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/rules-big-endian"
+  },
+  "heap-bv": {
+    "passed": 8,
+    "total": 8,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/heap-bv"
+  },
+  "witness-regression": {
+    "passed": 33,
+    "total": 33,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/witness-regression"
+  },
+  "cli-backend": {
+    "passed": 11,
+    "total": 11,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/cli-backend"
+  },
+  "bv-witness": {
+    "passed": 2,
+    "total": 2,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/bv-witness"
+  },
+  "final-capacity": {
+    "passed": 14,
+    "total": 14,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/final-capacity"
+  },
+  "final-boundaries-corrected": {
+    "passed": 3,
+    "total": 3,
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/final-boundaries-corrected"
+  },
+  "build": {
+    "success": true,
+    "base_commit": "5d1d827086ebe26a591fbdf756ea881df160a3fc",
+    "binary_sha256": "ef856ca30466ca3bed0b572e9b0bd8b291b0465dcfbd648a93c188c8d2ba99c8",
+    "source_sha256": {
+      "src/cbmc/cbmc_parse_options.cpp": "35b9897c5669aeb0363f4ae98d8a18529166ab41946e916a85281ad23fee2c22",
+      "src/cbmc/cbmc_parse_options.h": "9e703639196cc42b804dccf2f04d1b9c41149ffd2bb0f4302b010c7cafd20cc0",
+      "src/goto-btor2/memory_access.cpp": "4a38ce5ed19de19ef84a4cc986ec0034d8d685b788ec5041b99835450027affa",
+      "src/goto-btor2/goto_btor2.cpp": "0d72371a3624d8cd496191f3269250fa79fe0d62017857c78d522fca29a49f66",
+      "src/goto-btor2/btor2_builder.h": "51641bd4f69a610176d23aad605db78f4db3eee3f11d1403cdaaffc19452dbbd",
+      "src/goto-btor2/heap_model.h": "76fa4f0f6369a1c9ec9b62fcd50651f8d9fbbab10d5e17f14fb0c15375504ab9",
+      "src/goto-btor2/btor2_builder.cpp": "22610cd326633e178cef66e6613ae0d7ec3dc065d7ec91613a4d42e7c26be258",
+      "src/goto-btor2/memory_access.h": "b6d160b5c29ade6ca262756c5a88f5f344942773e9b55ddd50f107bf36197c79",
+      "src/goto-btor2/goto_btor2_converter.h": "15cbd83cafc03ad00dd7c00711dc3d8c2e126adab80b3da184583ceea52cb5e3",
+      "src/goto-btor2/heap_model.cpp": "9d153149a4f4b0d0f67e2841a970659cf7cd51cbcfa416158fb4171b6f4509bb",
+      "src/goto-btor2/goto_btor2.h": "9dcadeebbb606367c1b5a076053bd6d9fcd36d4596df3259f836fd005b653911",
+      "src/goto-btor2/array_encoding.h": "bd5be768d870de60402cf8d9945084345b9d4071258240f956117163ae9a1a95"
+    }
+  },
+  "evidence_limits": [
+    "BMC absence is bounded_no_violation, not unbounded SAFE.",
+    "rIC3 checks combine all bad nodes and returned expected UNSAT/SAT on the two specified small models.",
+    "BV source witness replayed by BtorSim and exported; CPAchecker not run.",
+    "No full SV-COMP evaluation, performance ablation or general semantic preservation proof."
+  ],
+  "final-model-consistency": {
+    "passed": 89,
+    "total": 89,
+    "meaning": "Final binary produces byte-identical BTOR2 models for all 89 solver-tested array cases.",
+    "raw_artifacts": "/tmp/c2btor-array-encoding-20260927/final-model-consistency-repo-env"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "confirmed",
+  "returncode": 0,
+  "validator_verdict": "FALSE",
+  "solver": "PRINCESS",
+  "encoding": "bitvector",
+  "floats": "disabled",
+  "witness_sha256": "40a90de7d57aec9b4404aa080b85c81f43bfd29bb4d1d38a42b9fbcd37efdb4e"
+}

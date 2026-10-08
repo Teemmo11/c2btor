@@ -1,0 +1,804 @@
+{
+  "date": "2026-10-03",
+  "branch": "release",
+  "head": "638c1b35ef8eea39de917e2b56b1b7429839ae1a",
+  "working_tree": "uncommitted",
+  "artifact_root": "/tmp/c2btor-auto-capacity-eyjas53q",
+  "source_sha256": {
+    "src/goto-btor2/memory_capacity.h": "93c7acd1f63a53612a79fd9840f4379e50b6b68e9436e9cb26b5330ddcd6b685",
+    "src/goto-btor2/memory_capacity.cpp": "bb3030861c348bbdaf3dbf33963551e6990973798722156a1c36f93b3eb57d30",
+    "src/goto-btor2/array_encoding.h": "72473b60e7a8bc34352e31805dd55358233cf032ec7ba3af7b2b77682b582436",
+    "src/goto-btor2/heap_model.h": "5d034d2a73c048f7a76b27533663a5b82ac301ba956482c1c106ef5eba4f3e23",
+    "src/goto-btor2/heap_model.cpp": "ebc900da83b0be3de5505d004a3164a53a1c08cbff6fad3ffa8d2438cd2eac12",
+    "src/goto-btor2/object_memory.cpp": "b259cf1ae14386fd68a2b24d0f7c37c6b6b35bda5e019a040f792f68d76a16ef",
+    "src/goto-btor2/memory_access.cpp": "82dbfedff85e886159c434b853071abe2e3151a9193c28168687c463912583a1",
+    "src/goto-btor2/expr_to_btor2_bitvec.cpp": "451ea104a19e8abbeca6d610adff856792c3ff70c2e4cf5205d4f76161947e26",
+    "src/cbmc/cbmc_parse_options.cpp": "fff452d908db5e214839f05d80beee090b56d885e87d5af5fcf5f2ad0e07446c",
+    "src/goto-btor2/CMakeLists.txt": "f4913bdef4ef13faf97feb06e216c696ba4ade213a63f1ac6367d789dc1057dc",
+    "src/goto-btor2/Makefile": "a38d8368881c5fc9f279eb28db3e39c2039b93cd1886328d99d28d44b921b01c",
+    "regression/goto-btor2/check_auto_capacity.py": "537a36c1b84d26c8746ab543bc562fe82dd2b05873159528b0550e6f8f3a2d73",
+    "regression/goto-btor2/check_properties.py": "05bdb365e8b824750913731de02c8ba1e725435cea5220d64978ae635b10efba"
+  },
+  "tool_sha256": {
+    "build/bin/cbmc": "b1d53ae28845b30aa84e0fd85f74be2a7816eb926eb4f461b78ea65ffb0859bf",
+    "checker/macOS arm64/catbtor": "da31667f747a5ed388412abeda83cf2d38087ce0fa8430c444ba995d8791da06",
+    "checker/macOS arm64/btorsim": "4da1c69c7864884c80fc46a7ed03caddc404c803d235b42039eff2467d717dfe",
+    "checker/macOS arm64/ric3": "26822730b1379d38e4b372cc818bd226368382460931da380c111633be6c1809"
+  },
+  "build": {
+    "passed": true,
+    "command": [
+      "cmake",
+      "--build",
+      "build",
+      "--target",
+      "cbmc",
+      "-j8"
+    ],
+    "log": "/tmp/c2btor-auto-capacity-eyjas53q/build-final-4.log"
+  },
+  "capacity": {
+    "cases": 54,
+    "passed": 54,
+    "concrete_replays": 76,
+    "parser": "official catbtor",
+    "simulation": "BtorSim concrete input traces",
+    "targets": [
+      "ILP32",
+      "LP64"
+    ],
+    "allocation_budget": {
+      "realloc-prefix": 2,
+      "others": 1
+    },
+    "command": [
+      "python3",
+      "regression/goto-btor2/check_auto_capacity.py",
+      "--output",
+      "/tmp/c2btor-auto-capacity-eyjas53q/capacity-final-3"
+    ],
+    "completion_rule": "normal paths reach completion bad without numerical or auxiliary bad; faults reach only expected category",
+    "report_sha256": "1e87f390235aaf345b0335454de2a562f7b22a8536c9091fd8cb13ca434a15cf",
+    "results": [
+      {
+        "case": "32-large-vla-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-large-vla-object-array",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-large-vla-global-bv",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-large-vla-global-array",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-fixed-exact-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-independent-default-default",
+        "expected_capacities": {
+          "a": 40000,
+          "b": 500
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-assumed-range-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-variable-bound-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-branch-join-default-default",
+        "expected_capacities": {
+          "a": 80000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-masked-range-default-default",
+        "expected_capacities": {
+          "a": 40012
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-bool-bound-default-default",
+        "expected_capacities": {
+          "a": 12
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 4
+      },
+      {
+        "case": "32-narrowing-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-unsigned-wrap-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-alias-write-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-loop-widening-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-large-malloc-default-default",
+        "expected_capacities": {
+          "heap": 5000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-heap-join-default-default",
+        "expected_capacities": {
+          "heap": 9000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-calloc-large-default-default",
+        "expected_capacities": {
+          "heap": 8000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-calloc-range-default-default",
+        "expected_capacities": {
+          "heap": 8012
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-captured-size-default-default",
+        "expected_capacities": {
+          "a": 10,
+          "heap": 10
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-vla-captured-default-default",
+        "expected_capacities": {
+          "original": 40000,
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-calloc-overflow-default-default",
+        "expected_capacities": {},
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-member-bound-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "32-aggregate-pointer-store-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-realloc-prefix-default-default",
+        "expected_capacities": {
+          "heap": 12
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "32-explicit-excess-default-default",
+        "expected_capacities": {
+          "a": 16
+        },
+        "passed": true,
+        "classification": "model_limit",
+        "replays": 1
+      },
+      {
+        "case": "32-actual-bounds-default-default",
+        "expected_capacities": {
+          "a": 5000
+        },
+        "passed": true,
+        "classification": "memory_validity",
+        "replays": 1
+      },
+      {
+        "case": "64-large-vla-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-large-vla-object-array",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-large-vla-global-bv",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-large-vla-global-array",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-fixed-exact-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-independent-default-default",
+        "expected_capacities": {
+          "a": 40000,
+          "b": 500
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-assumed-range-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-variable-bound-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-branch-join-default-default",
+        "expected_capacities": {
+          "a": 80000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-masked-range-default-default",
+        "expected_capacities": {
+          "a": 40012
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-bool-bound-default-default",
+        "expected_capacities": {
+          "a": 12
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 4
+      },
+      {
+        "case": "64-narrowing-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-unsigned-wrap-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-alias-write-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-loop-widening-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-large-malloc-default-default",
+        "expected_capacities": {
+          "heap": 5000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-heap-join-default-default",
+        "expected_capacities": {
+          "heap": 9000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-calloc-large-default-default",
+        "expected_capacities": {
+          "heap": 8000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-calloc-range-default-default",
+        "expected_capacities": {
+          "heap": 8012
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-captured-size-default-default",
+        "expected_capacities": {
+          "a": 10,
+          "heap": 10
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-vla-captured-default-default",
+        "expected_capacities": {
+          "original": 40000,
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-calloc-overflow-default-default",
+        "expected_capacities": {},
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-member-bound-default-default",
+        "expected_capacities": {
+          "a": 40000
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 2
+      },
+      {
+        "case": "64-aggregate-pointer-store-default-default",
+        "expected_capacities": {
+          "a": 262140
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-realloc-prefix-default-default",
+        "expected_capacities": {
+          "heap": 12
+        },
+        "passed": true,
+        "classification": "source",
+        "replays": 1
+      },
+      {
+        "case": "64-explicit-excess-default-default",
+        "expected_capacities": {
+          "a": 16
+        },
+        "passed": true,
+        "classification": "model_limit",
+        "replays": 1
+      },
+      {
+        "case": "64-actual-bounds-default-default",
+        "expected_capacities": {
+          "a": 5000
+        },
+        "passed": true,
+        "classification": "memory_validity",
+        "replays": 1
+      }
+    ]
+  },
+  "float": {
+    "numeric_cases": 18315,
+    "numeric_mismatches": 0,
+    "numeric_artifacts": "/tmp/c2btor-auto-capacity-eyjas53q/float-final",
+    "numeric_scope": "unchanged IEEE circuit source hashes, native oracle differential regression",
+    "c_integration_current": 64,
+    "c_integration_classifications": {
+      "completed": 56,
+      "model_limit": 8
+    },
+    "c_integration_artifacts": "/tmp/c2btor-auto-capacity-eyjas53q/float-current",
+    "source_sha256": {
+      "src/goto-btor2/ieee754_arith.cpp": "f8b684aa03c445a5f784238e93ece1a714fdcd5b37ab0e6ec7886ab31bb33557",
+      "src/goto-btor2/expr_to_btor2_float.cpp": "deae1f41354fa1590a6ddcec060a3e2d11560baa24befe68a67102dbed3681c9",
+      "regression/goto-btor2/check_float_lowering.py": "bd496a8aa4b129da6339d5a225dc6f802692d64671f926e2ab754a8fb4687ff2",
+      "regression/goto-btor2/float_circuits.cpp": "caf0924a82245a350545593e236bd8d787c94661de3f4bb77dcf4a39d384824f"
+    },
+    "backend_controls": [
+      {
+        "case": "symbolic_add_safe",
+        "result": "UNSAT",
+        "replayed": false
+      },
+      {
+        "case": "symbolic_add_unsafe",
+        "result": "SAT",
+        "replayed": true
+      }
+    ],
+    "formal_equivalence_proof": false,
+    "CPAchecker": "not_run"
+  },
+  "properties": {
+    "passed": 30,
+    "artifacts": "/tmp/c2btor-auto-capacity-eyjas53q/properties-final-2",
+    "results": [
+      {
+        "case": "folded-default-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "folded-target-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "folded-selected-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "folded-merged-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "unused-target-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "unused-selected-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "unused-merged-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "multiple-target-global-bv",
+        "bads": 2,
+        "source_properties": 2,
+        "parser": "passed"
+      },
+      {
+        "case": "multiple-selected-global-bv",
+        "bads": 2,
+        "source_properties": 2,
+        "parser": "passed"
+      },
+      {
+        "case": "multiple-merged-global-bv",
+        "bads": 1,
+        "source_properties": 2,
+        "parser": "passed"
+      },
+      {
+        "case": "ordinary-target-global-bv",
+        "bads": 2,
+        "source_properties": 2,
+        "parser": "passed"
+      },
+      {
+        "case": "ordinary-selected-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "ordinary-merged-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "memory-merged-global-array",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "memory-merged-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "memory-merged-object-array",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "memory-merged-object-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "unsupported-merged-global-bv",
+        "rejected": true
+      },
+      {
+        "case": "unused-typo-global-bv",
+        "rejected": true
+      },
+      {
+        "case": "unused-default-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "unsupported-default-global-bv",
+        "rejected": true
+      },
+      {
+        "case": "unused-legacy-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "unused-legacy_no_heap-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "unused-selected_no_heap-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "multiple-legacy-global-bv",
+        "bads": 1,
+        "source_properties": 2,
+        "parser": "passed"
+      },
+      {
+        "case": "multiple-legacy_no_heap-global-bv",
+        "bads": 1,
+        "source_properties": 2,
+        "parser": "passed"
+      },
+      {
+        "case": "multiple-selected_no_heap-global-bv",
+        "bads": 2,
+        "source_properties": 2,
+        "parser": "passed"
+      },
+      {
+        "case": "memory-legacy-global-bv",
+        "bads": 5,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "memory-legacy_no_heap-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      },
+      {
+        "case": "memory-selected_no_heap-global-bv",
+        "bads": 1,
+        "source_properties": 1,
+        "parser": "passed"
+      }
+    ]
+  },
+  "heap_solver_controls": {
+    "snapshot_artifacts": "/tmp/c2btor-auto-capacity-eyjas53q/heap-rules-2",
+    "passed": 4,
+    "incomplete": 5,
+    "target": "ILP32",
+    "allocation_budget": {
+      "default_for_controls": 2,
+      "case_17": 1
+    },
+    "bound": 160,
+    "timeout_seconds": 60,
+    "scope": "earlier capacity snapshot; incomplete solver checks are not passes"
+  },
+  "heap_concrete_controls": {
+    "snapshot_artifacts": "/tmp/c2btor-auto-capacity-eyjas53q/heap-replay",
+    "passed": 6,
+    "scope": "earlier capacity snapshot; chosen input executions only"
+  },
+  "heap_witness_candidates": {
+    "snapshot_artifacts": "/tmp/c2btor-auto-capacity-eyjas53q/heap-witness-replay-2",
+    "passed_export_simulation_yaml": 2,
+    "backend": "chosen concrete input traces",
+    "CPAchecker": "not_run"
+  },
+  "not_established": [
+    "interval-analysis soundness proof",
+    "complete C semantic preservation",
+    "practical solver scalability at representation ceiling",
+    "complete heap/witness regression",
+    "C witness confirmed by CPAchecker",
+    "SAFE result after hiding model_limit"
+  ],
+  "remaining_limits": [
+    "fixed BV width chosen at model generation",
+    "pointer/BTOR2 sort width and resources",
+    "successful allocation budget default 32",
+    "unknown typed bytes/repeated automatic object lifetime",
+    "hidden-model-limit UNSAT-to-SAFE pipeline remains unfixed"
+  ]
+}

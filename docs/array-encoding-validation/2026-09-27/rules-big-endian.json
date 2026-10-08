@@ -1,0 +1,46 @@
+[
+  {
+    "case": 16,
+    "mode": "array",
+    "test": "16-array",
+    "expected": "bounded_no_violation",
+    "array_sorts": 4,
+    "model_bytes": 11576,
+    "bv_state_bits": 77,
+    "actual": "bounded_no_violation",
+    "passed": true
+  },
+  {
+    "case": 16,
+    "mode": "array",
+    "test": "16-array-completion",
+    "expected": "source",
+    "array_sorts": 4,
+    "model_bytes": 11948,
+    "bv_state_bits": 77,
+    "actual": "source",
+    "passed": true
+  },
+  {
+    "case": 16,
+    "mode": "bv",
+    "test": "16-bv",
+    "expected": "bounded_no_violation",
+    "array_sorts": 0,
+    "model_bytes": 22848,
+    "bv_state_bits": 693,
+    "actual": "bounded_no_violation",
+    "passed": true
+  },
+  {
+    "case": 16,
+    "mode": "bv",
+    "test": "16-bv-completion",
+    "expected": "source",
+    "array_sorts": 0,
+    "model_bytes": 23256,
+    "bv_state_bits": 693,
+    "actual": "source",
+    "passed": true
+  }
+]

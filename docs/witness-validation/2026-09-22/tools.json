@@ -1,0 +1,18 @@
+{
+  "cbmc": {
+    "path": "/Users/west/Developer/cbmc/build/bin/cbmc",
+    "sha256": "d44659a659e5c6efa10f21e375a2dee34454962a3c6940edb25abc78f72c3ad2"
+  },
+  "ric3": {
+    "path": "/Users/west/Developer/cbmc/checker/macOS arm64/ric3",
+    "sha256": "26822730b1379d38e4b372cc818bd226368382460931da380c111633be6c1809"
+  },
+  "btorsim": {
+    "path": "/Users/west/Developer/cbmc/checker/macOS arm64/btorsim",
+    "sha256": "4da1c69c7864884c80fc46a7ed03caddc404c803d235b42039eff2467d717dfe"
+  },
+  "btormc": {
+    "path": "/Users/west/Developer/all/simple_CAR/btor2/deps/btor2tools/deps/install/bin/btormc",
+    "sha256": "24c6453d066f639ab28018398653c46aa6858f6c3e07d367bdec3ebab2ed0f21"
+  }
+}

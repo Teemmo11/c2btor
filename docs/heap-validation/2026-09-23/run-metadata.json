@@ -1,0 +1,7 @@
+{
+  "cbmc_binary_sha256": "3c96fb60e5af5da19739831e1a8463f887efcc935b96b6d0e0c5ac76240cdbfa",
+  "build_log": "/tmp/c2btor-byte-memory-final-build2.log",
+  "tf_artifact_directory": "/tmp/c2btor-tf-memory-final",
+  "witness_artifact_directory": "/tmp/c2btor-memory-witness-final",
+  "note": "Rule results retain bounded outcomes and timeout. Historical runs are not an unbounded proof."
+}

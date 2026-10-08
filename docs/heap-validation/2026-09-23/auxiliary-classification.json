@@ -1,0 +1,26 @@
+{
+  "memory_validity": {
+    "status": "memory_validity",
+    "properties": [
+      {
+        "bad_node": 2241,
+        "pc": 104,
+        "property_class": "memory_validity"
+      }
+    ],
+    "source_violation": false,
+    "explanation": "Backend reports an internal memory property; no C violation witness emitted."
+  },
+  "model_limit": {
+    "status": "model_limit",
+    "properties": [
+      {
+        "bad_node": 600,
+        "pc": 43,
+        "property_class": "model_limit"
+      }
+    ],
+    "source_violation": false,
+    "explanation": "Backend reports an internal memory property; no C violation witness emitted."
+  }
+}

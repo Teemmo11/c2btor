@@ -1,0 +1,21 @@
+{
+  "source_sha256": "23019fc540e526cac2861774235d29ec8d034d4411d9087b05f311797f3f8697",
+  "tools": {
+    "cbmc": {
+      "path": "/private/tmp/c2btor-array-encoding-20260927/rules-64/cbmc.snapshot",
+      "sha256": "f92eb53b1b3f1d83e0bea3d6f353fa5abfd63259379882441586bde70e74893d"
+    },
+    "catbtor": {
+      "path": "/Users/west/Developer/cbmc/checker/macOS arm64/catbtor",
+      "sha256": "da31667f747a5ed388412abeda83cf2d38087ce0fa8430c444ba995d8791da06"
+    },
+    "btormc": {
+      "path": "/Users/west/Developer/simple_CAR/btor2/deps/btor2tools/deps/install/bin/btormc",
+      "sha256": "24c6453d066f639ab28018398653c46aa6858f6c3e07d367bdec3ebab2ed0f21"
+    }
+  },
+  "target": "64",
+  "big_endian": false,
+  "bound": 250,
+  "timeout_seconds": 45
+}
