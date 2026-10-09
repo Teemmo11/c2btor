@@ -24,7 +24,7 @@ if("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_SOURCE_DIR}")
     " files in the source tree, this is prohibited.  Please perform an"
     " out-of-source build by either creating a separate build directory and"
     " invoking cmake from there, or specifying a build directory with -B.\n"
-    "(see also: COMPILING.md)\n"
+    "(see also: README.md)\n"
     "Note that running this command will have created CMakeCache.txt"
     " and a CMakeFiles directory; You should delete both of them.")
 endif()

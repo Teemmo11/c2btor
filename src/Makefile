@@ -203,9 +203,6 @@ cadical-download:
 	@(cd ../cadical && mv VERSION VERSION.txt)
 	@$(RM) $(cadical_release).tar.gz
 
-doc :
-	doxygen
-
 install: all
 	for b in \
 		crangler \

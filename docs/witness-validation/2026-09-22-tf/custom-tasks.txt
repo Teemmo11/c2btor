@@ -1,5 +1,0 @@
-alg_array_quick_sort.yml
-alg_tree_traversals.yml
-gen_tree_traversal_sum_01_true.yml
-gen_tree_traversal_sum_02_true.yml
-gen_tree_traversal_sum_03_true.yml

@@ -33,7 +33,7 @@ solver or validate C witnesses.
 Keep conversion success, parser success, solver verdict, BtorSim replay and
 CPAchecker confirmation separate. A bounded no-counterexample result is not
 an unbounded SAFE proof. Memory validity and model limits are not source
-unreach-call counterexamples. The dated evidence in `docs/` is historical.
+unreach-call counterexamples. See the root README for usage and result interpretation.
 
 `check_constant_callback.py` and `check_symbol_heap.py` accept `RIC3` and
 `CATBTOR` environment overrides. Other scripts expose tool arguments.

@@ -1386,7 +1386,7 @@ void cbmc_parse_optionst::help()
     "Witness: scripts/c2btor_witness.py export / translate / validate.\n"
     "Use a hash-bound map and BtorSim replay before CPAchecker confirmation.\n"
     "UNSAT requires all selected properties and model obligations; bounded absence,\n"
-    "TIMEOUT and UNKNOWN are not C SAFE results. See README.md and docs/c2btor-witness.md.\n"
+    "TIMEOUT and UNKNOWN are not C SAFE results. See README.md for witness commands.\n"
     "\n"
     "Based on CBMC: https://github.com/diffblue/cbmc\n"
     "CBMC documentation: https://diffblue.github.io/cbmc/\n"

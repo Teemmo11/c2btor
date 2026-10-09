@@ -1,19 +1,6 @@
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED)
 
-find_package(Doxygen)
-if(DOXYGEN_FOUND)
-  set(CONFIGURED_DOXYFILE "${CMAKE_BINARY_DIR}/doxyfile")
-  set(DOC_INPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/doc")
-  set(DOC_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/doc")
-
-  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/doxyfile.override.in" "${CONFIGURED_DOXYFILE}" @ONLY)
-  add_custom_target(doc
-      COMMAND "${CMAKE_COMMAND}" -E remove_directory "${DOC_OUTPUT_DIRECTORY}"
-      COMMAND "${CMAKE_COMMAND}" -E copy_directory "${DOC_INPUT_DIRECTORY}" "${DOC_OUTPUT_DIRECTORY}"
-      COMMAND "${DOXYGEN_EXECUTABLE}" "${CONFIGURED_DOXYFILE}"
-      WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
-endif(DOXYGEN_FOUND)
 
 #   Add a bison target named 'parser'.
 macro(generic_bison name)
