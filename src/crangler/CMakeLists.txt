@@ -24,11 +24,3 @@ add_executable(crangler crangler_main.cpp)
 target_link_libraries(crangler crangler-lib)
 
 install(TARGETS crangler DESTINATION ${CMAKE_INSTALL_BINDIR})
-
-# Man page
-if(NOT WIN32)
-  install(
-    DIRECTORY ${CMAKE_SOURCE_DIR}/doc/man/
-    DESTINATION ${CMAKE_INSTALL_MANDIR}/man1
-    FILES_MATCHING PATTERN "crangler*")
-endif()

@@ -209,10 +209,8 @@ install: all
 		goto-analyzer goto-cc goto-diff goto-instrument goto-inspect goto-harness \
     goto-synthesizer symtab2gb ; do \
 		  cp $$b/$$b $(PREFIX)/bin/ ; \
-			cp ../doc/man/$$b.1 $(PREFIX)/doc/man/man1/ ; \
 	done
 	cp cbmc/c2btor $(PREFIX)/bin/
-	cp ../doc/man/c2btor.1 $(PREFIX)/doc/man/man1/
 	ln -sf $(PREFIX)/bin/goto-cc $(PREFIX)/bin/goto-gcc
 	ln -sf $(PREFIX)/bin/goto-cc $(PREFIX)/bin/goto-ld
 	cp ../scripts/ls_parse.py $(PREFIX)/bin/

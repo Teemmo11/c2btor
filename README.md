@@ -2,19 +2,17 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-## 1. Overview
+## 1. C2BTOR framework
 
-C2BTOR is a C program verification framework that uses hardware model checking. It reuses the [CBMC](https://github.com/diffblue/cbmc) C frontend to translate C programs into GotoIR, encodes them as bit-precise BTOR2 transition systems, and lets an external model checker search for assertion failures or prove properties.
+C2BTOR is a C program verification framework based on hardware model checking. It uses the [CBMC](https://github.com/diffblue/cbmc) frontend to translate C programs with assertions into Goto-IR, generates BTOR2 transition-system models, and lets different hardware model checkers search for counterexamples or prove safety properties.
 
-```text
-C program → CBMC frontend / GotoIR → C2BTOR → BTOR2 → model checker
-```
+![C2BTOR verification framework: C programs pass through the CBMC frontend and C2Btor encoding to produce BTOR2 models for optional hardware model checkers; SAT witnesses are replayed, translated back and independently confirmed before reporting UNSAFE; SAFE requires an unbounded proof.](docs/images/c2btor-framework.png)
 
-The converter supports sequential programs starting at `main`, ordinary function calls after inlining, machine integers, supported binary32/binary64 floating-point operations, and finite object memory. Recursive call stacks, concurrency, unbounded heaps, and some C memory operations remain unsupported. A program accepted by the CBMC frontend may still be outside C2BTOR's encoding scope.
-
-The source release targets **Linux x86-64**. The executable and build target are **`c2btor`**, version **`2.0.0`**. Its source baseline is `westtide/cbmc` tag `2.0`, commit `4b94c0095bfe08bfed221cb7665a225a28d18eb8`. Prebuilt converter/checker tools are not included.
+**SAFE\*** requires an unbounded algorithm to prove all selected properties and model-boundary obligations. A bounded search without a counterexample does not establish SAFE.
 
 ## 2. Dependencies and installation
+
+The source release targets **Linux x86-64**. The executable and build target are **`c2btor`**, version **`2.0.0`**. Its source baseline is `westtide/cbmc` tag `2.0`, commit `4b94c0095bfe08bfed221cb7665a225a28d18eb8`. Prebuilt converter/checker tools are not included.
 
 - **Build:** C++17 compiler, CMake 3.8+, Make or Ninja, Flex, Bison, Git, Bash and `patch`. The default CMake configuration downloads and patches MiniSat.
 - **Conversion:** a C preprocessor, such as GCC. Conversion alone does not need a model checker.
@@ -41,7 +39,19 @@ For an optional local installation:
 cmake --install build --component c2btor --prefix /path/to/install
 ```
 
-## 3. Parameters and commands
+## 3. Supported hardware model checkers
+
+| Tool | Input path | Notes |
+| --- | --- | --- |
+| [rIC3](https://github.com/gipsyh/rIC3) | BTOR2 / AIGER | IC3, BMC and other algorithms; this repository provides runner scripts. |
+| [Pono](https://github.com/stanford-centaur/pono) | BTOR2 | Multiple SMT-based model-checking algorithms; follow the tool's official usage instructions. |
+| [BtorMC](https://github.com/Boolector/boolector) | BTOR2 | Bounded model checking; standard counterexamples have been used for replay validation. |
+| [AVR](https://github.com/aman-goel/avr) | BTOR2 | A format-compatible backend; C2BTOR's end-to-end witness path has not been independently validated with it. |
+| [SimpleCAR](https://github.com/lijwen2748/simplecar), [ABC](https://github.com/berkeley-abc/abc) | BTOR2 → AIGER | Bit-level model checking; use a pure BV encoding and install a converter. |
+
+Match the model's arrays, property count and counterexample format to the chosen backend. Other compatible BTOR2/AIGER checkers can also be connected.
+
+## 4. Parameters and commands
 
 ### Convert a C program
 
@@ -118,7 +128,11 @@ The final output directory must be new. Export creates a model and source/model 
 
 For the complete interfaces, run `build/bin/c2btor --help` and `python3 scripts/c2btor_witness.py --help`. Conversion regression scripts remain in `regression/goto-btor2/`; supply separately installed tools as described by each script's `--help`.
 
-## 4. Acknowledgements and license
+### Supported scope
+
+The converter supports sequential programs starting at `main`, ordinary function calls after inlining, machine integers, supported binary32/binary64 floating-point operations, and finite object memory. Recursive call stacks, concurrency, unbounded heaps, and some C memory operations remain unsupported. A program accepted by the CBMC frontend may still be outside C2BTOR's encoding scope.
+
+## 5. Acknowledgements and license
 
 **C2BTOR is built on CBMC.** We thank Daniel Kroening, Edmund Clarke, the CBMC/CProver authors and all upstream contributors for the C frontend, GotoIR, target configuration and program transformations that make this framework possible. See the [CBMC source repository](https://github.com/diffblue/cbmc) and [official documentation](https://diffblue.github.io/cbmc/).
 

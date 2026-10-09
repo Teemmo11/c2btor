@@ -48,10 +48,8 @@ target_link_libraries(c2btor cbmc-lib)
 endif()
 install(TARGETS c2btor DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT c2btor)
 
-# Product-specific command documentation and completion.
+# Product-specific shell completion.
 if(NOT WIN32)
-  install(FILES ${CMAKE_SOURCE_DIR}/doc/man/c2btor.1
-    DESTINATION ${CMAKE_INSTALL_MANDIR}/man1 COMPONENT c2btor)
   find_program(BASH_PROGRAM bash REQUIRED)
   set(c2btor_completion "${CMAKE_CURRENT_BINARY_DIR}/c2btor.sh")
   add_custom_command(OUTPUT "${c2btor_completion}"

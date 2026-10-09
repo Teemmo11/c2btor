@@ -23,11 +23,3 @@ target_link_libraries(goto-synthesizer-lib
 add_executable(goto-synthesizer goto_synthesizer_main.cpp)
 target_link_libraries(goto-synthesizer goto-synthesizer-lib)
 install(TARGETS goto-synthesizer DESTINATION ${CMAKE_INSTALL_BINDIR})
-
-# Man page
-if(NOT WIN32)
-  install(
-    DIRECTORY ${CMAKE_SOURCE_DIR}/doc/man/
-    DESTINATION ${CMAKE_INSTALL_MANDIR}/man1
-    FILES_MATCHING PATTERN "goto-synthesizer*")
-endif()

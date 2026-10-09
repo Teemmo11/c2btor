@@ -164,10 +164,6 @@ jbmc/src/java_bytecode/library/core-models.jar
 jbmc/src/java_bytecode/library/classes
 jbmc/src/java_bytecode/library/src
 
-# auto generated documentation
-doc/html/
-
-
 # Out-of-source builds and dependency downloads
 /build*/
 /cmake-build-*/
@@ -208,14 +204,6 @@ venv/
 *.swo
 Thumbs.db
 Desktop.ini
-
-# LaTeX output: keep the .tex sources
-/docs/*.aux
-/docs/*.toc
-/docs/*.out
-/docs/*.pdf
-/docs/*.fls
-/docs/*.fdb_latexmk
 
 # Checked-in SMT string inputs; generated regression outputs stay ignored.
 !regression/smt2_strings/*/*.smt2

@@ -2,19 +2,17 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-## 1. 项目概要
+## 1. C2BTOR framework
 
-C2BTOR 是一个基于硬件模型检测的 C 程序验证框架。它复用 [CBMC](https://github.com/diffblue/cbmc) 的 C 前端，将 C 程序转换为 GotoIR，再编码为位精确的 BTOR2 状态迁移模型，交给外部模型检测器搜索断言反例或证明性质。
+C2BTOR 是一个基于硬件模型检测的 C 程序验证框架。它通过 [CBMC](https://github.com/diffblue/cbmc) 前端将带有断言的 C 程序转换为 Goto-IR，再生成 BTOR2 状态迁移模型，交给不同的硬件模型检测器搜索反例或证明安全性质。
 
-```text
-C 程序 → CBMC 前端 / GotoIR → C2BTOR → BTOR2 → 模型检测器
-```
+![C2BTOR 验证框架：C 程序经 CBMC 前端和 C2Btor 编码生成 BTOR2 模型，由可选硬件模型检测器验证；SAT witness 回译并独立确认后报告 UNSAFE，无界证明后报告 SAFE。](docs/images/c2btor-framework.png)
 
-主要面向从 `main` 开始执行的顺序 C 程序，支持内联后的普通函数调用、机器整数、已实现的 binary32/binary64 浮点操作，以及有限对象内存。递归调用栈、并发、无界堆和部分 C 内存操作仍不支持。CBMC 前端能解析的程序，不一定都能被 C2BTOR 编码。
-
-本次源码发布面向 **Linux x86-64**。构建目标与可执行文件均为 **`c2btor`**，产品版本为 **`2.0.0`**。源码基线为 `westtide/cbmc` 的 `2.0` 标签，提交 `4b94c0095bfe08bfed221cb7665a225a28d18eb8`。仓库不提供预编译转换器或 checker。
+**SAFE\*** 要求无界算法证明全部选中性质和模型边界义务；有界搜索无反例不代表 SAFE。
 
 ## 2. 依赖与安装
+
+本次源码发布面向 **Linux x86-64**。构建目标与可执行文件均为 **`c2btor`**，产品版本为 **`2.0.0`**。源码基线为 `westtide/cbmc` 的 `2.0` 标签，提交 `4b94c0095bfe08bfed221cb7665a225a28d18eb8`。仓库不提供预编译转换器或 checker。
 
 - **构建**：C++17 编译器、CMake 3.8+、Make 或 Ninja、Flex、Bison、Git、Bash 和 `patch`。默认 CMake 配置会下载并打补丁构建 MiniSat。
 - **转换**：C 预处理器，例如 GCC。仅生成模型时不需要模型检测器。
@@ -41,7 +39,19 @@ build/bin/c2btor --version
 cmake --install build --component c2btor --prefix /path/to/install
 ```
 
-## 3. 使用参数与命令
+## 3. 支持的硬件模型检测器
+
+| 工具                                                                                           | 输入路径       | 说明                                                   |
+| ---------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------ |
+| [rIC3](https://github.com/gipsyh/rIC3)                                                          | BTOR2 / AIGER  | IC3、BMC 等；仓库提供运行脚本                          |
+| [Pono](https://github.com/stanford-centaur/pono)                                                | BTOR2          | 多种 SMT 模型检测算法；按工具官方说明运行                |
+| [BtorMC](https://github.com/Boolector/boolector)                                                | BTOR2          | 有界模型检测；标准反例已用于回放验证                   |
+| [AVR](https://github.com/aman-goel/avr)                                                         | BTOR2          | 格式兼容后端；C2BTOR 的端到端 witness 路径尚未独立验证 |
+| [SimpleCAR](https://github.com/lijwen2748/simplecar)、[ABC](https://github.com/berkeley-abc/abc) | BTOR2 → AIGER | 位级模型检测；使用纯 BV 编码并安装转换器               |
+
+具体模型的数组、属性数量及反例格式需与所选后端匹配。其他兼容 BTOR2/AIGER 的检测器也可接入。
+
+## 4. 使用参数与命令
 
 ### 转换 C 程序
 
@@ -118,7 +128,11 @@ python3 scripts/c2btor_witness.py export \
 
 完整接口可运行 `build/bin/c2btor --help` 和 `python3 scripts/c2btor_witness.py --help` 查看。转换回归脚本保留在 `regression/goto-btor2/`；按各脚本的 `--help` 传入独立安装的外部工具。
 
-## 4. 致谢与许可
+### 适用范围
+
+主要面向从 `main` 开始执行的顺序 C 程序，支持内联后的普通函数调用、机器整数、已实现的 binary32/binary64 浮点操作，以及有限对象内存。递归调用栈、并发、无界堆和部分 C 内存操作仍不支持。CBMC 前端能解析的程序，不一定都能被 C2BTOR 编码。
+
+## 5. 致谢与许可
 
 **C2BTOR 基于 CBMC 构建。** 感谢 Daniel Kroening、Edmund Clarke、CBMC/CProver 作者及所有上游贡献者提供 C 前端、GotoIR、目标机器配置与程序变换，使本框架得以实现。参考 [CBMC 源码仓库](https://github.com/diffblue/cbmc)及[官方文档](https://diffblue.github.io/cbmc/)。
 
